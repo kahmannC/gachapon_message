@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Message Gachapon — Receiver</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body data-page="receiver">
+    <header class="site-header small">
+      <div class="brand">
+        <h1>Message Gachapon</h1>
+        <p class="tag">Turn the knob and reveal a message</p>
+      </div>
+      <img src="assets/Gachapon machine.jpg" alt="gachapon reference" class="wireframe-ref">
+    </header>
+
+    <main class="container receiver">
+      <section class="gacha-stage">
+        <div class="machine">
+          <div class="machine-top"></div>
+          <div class="dome">
+            <div class="window-display">
+              <div class="window-card">
+                <span class="window-title">OPEN WHEN YOU'RE READY</span>
+                <div class="window-badge">¥200</div>
+              </div>
+            </div>
+            <div id="capsules" class="capsules">
+              <!-- capsule elements injected by JS -->
+            </div>
+          </div>
+          <div class="machine-neck"></div>
+          <div class="machine-base">
+            <div class="coin-slot"></div>
+            <div class="panel">
+              <span class="panel-label">100円</span>
+            </div>
+            <div class="slot"></div>
+            <button id="knob" class="knob" aria-label="Pull the knob">●</button>
+          </div>
+        </div>
+
+        <div class="status">
+          <div id="remaining" class="remaining">Remaining: <span>0</span></div>
+          <button id="resetBtn" class="btn soft">Reset</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- message modal -->
+    <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+      <div class="modal-card">
+        <button id="closeModal" class="close">✕</button>
+        <h3 id="modalTitle">A capsule</h3>
+        <p id="modalMessage"></p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

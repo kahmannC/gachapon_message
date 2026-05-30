@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>Message Gachapon — Sender</title>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body data-page="sender">
+		<header class="site-header">
+			<div class="brand">
+				<h1>Message Gachapon</h1>
+				<p class="tag">Fill capsules with tiny surprises</p>
+			</div>
+			<img src="assets/sender_wireframe.png" alt="wireframe reference" class="wireframe-ref">
+		</header>
+
+		<main class="container sender">
+			<section class="card form-card">
+				<h2>Create your Gacha</h2>
+
+				<label class="field">
+					<span class="label">Gacha title</span>
+					<input id="gachaTitle" type="text" placeholder="e.g. Cheerful Notes" maxlength="80">
+				</label>
+
+				<div id="capsulesList" class="capsules-list">
+					<!-- Capsules inputs inserted here by JS -->
+				</div>
+
+				<div class="controls">
+					<button id="addCapsule" class="btn soft">+ Add capsule</button>
+					<div class="spacer"></div>
+					<button id="previewBtn" class="btn primary">Preview on machine</button>
+				</div>
+			</section>
+
+			<aside class="card preview-card">
+				<h3>Preview</h3>
+				<div id="previewList" class="preview-list">
+					<!-- live preview of messages -->
+				</div>
+			</aside>
+		</main>
+
+		<footer class="site-footer">
+			<small>Prototype — frontend only. Inspired by assets in /assets/</small>
+		</footer>
+
+		<script src="script.js"></script>
+	</body>
+</html>
+
