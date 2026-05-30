@@ -9,21 +9,13 @@
 		<link rel="stylesheet" href="style.css">
 	</head>
 	<body data-page="sender">
-		<header class="site-header">
-			<div class="brand">
-				<h1>Message Gachapon</h1>
-				<p class="tag">Fill capsules with tiny surprises</p>
-			</div>
-			<img src="assets/sender_wireframe.png" alt="wireframe reference" class="wireframe-ref">
-		</header>
-
 		<main class="container sender">
-			<section class="card form-card">
-				<h2>Create your Gacha</h2>
+			<section class="sender-panel">
+				<p class="eyebrow">Gacha Message Maker</p>
+				<h1>Build Your Gacha</h1>
 
 				<label class="field">
-					<span class="label">Gacha title</span>
-					<input id="gachaTitle" type="text" placeholder="e.g. Cheerful Notes" maxlength="80">
+					<input id="gachaTitle" type="text" placeholder="A tiny gacha for you" maxlength="80">
 				</label>
 
 				<div id="capsulesList" class="capsules-list">
@@ -31,25 +23,20 @@
 				</div>
 
 				<div class="controls">
-					<button id="addCapsule" class="btn soft">+ Add capsule</button>
+					<button id="addCapsule" class="btn soft">Add capsule</button>
 					<div class="spacer"></div>
-					<button id="previewBtn" class="btn primary">Preview on machine</button>
+					<button id="previewBtn" class="btn primary">Preview</button>
 				</div>
+
+				<aside class="preview-card">
+					<h2>Preview</h2>
+					<div id="previewList" class="preview-list">
+						<!-- live preview of messages -->
+					</div>
+				</aside>
 			</section>
-
-			<aside class="card preview-card">
-				<h3>Preview</h3>
-				<div id="previewList" class="preview-list">
-					<!-- live preview of messages -->
-				</div>
-			</aside>
 		</main>
-
-		<footer class="site-footer">
-			<small>Prototype — frontend only. Inspired by assets in /assets/</small>
-		</footer>
 
 		<script src="script.js"></script>
 	</body>
 </html>
-

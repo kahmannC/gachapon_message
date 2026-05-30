@@ -34,33 +34,39 @@ function initSender(){
 	function makeCapsule(text=''){
 		const id = 'c-' + Math.random().toString(36).slice(2,8)
 		const wrap = document.createElement('div')
-		wrap.className = 'capsule-input card'
+		wrap.className = 'capsule-input'
 
 		const textarea = document.createElement('textarea')
 		textarea.placeholder = 'Write a short message (emoji allowed)'
-		textarea.maxLength = 220
+		textarea.maxLength = 320
 		textarea.value = text
 
 		const meta = document.createElement('div')
 		meta.className = 'capsule-meta'
 
+		const label = document.createElement('div')
+		label.className = 'capsule-label'
+		label.textContent = `Capsule ${capsulesList.children.length + 1}`
+
 		const count = document.createElement('div')
 		count.className = 'char-count'
-		count.textContent = `${textarea.value.length}/220`
+		count.textContent = `${textarea.value.length}/320`
 
 		const remove = document.createElement('button')
 		remove.className = 'btn soft'
 		remove.textContent = 'Remove'
 		remove.addEventListener('click', () => {
 			wrap.remove()
+			refreshCapsuleLabels()
 			updatePreview()
 		})
 
 		textarea.addEventListener('input', () => {
-			count.textContent = `${textarea.value.length}/220`
+			count.textContent = `${textarea.value.length}/320`
 			updatePreview()
 		})
 
+		meta.appendChild(label)
 		meta.appendChild(count)
 		meta.appendChild(remove)
 
@@ -70,15 +76,23 @@ function initSender(){
 		return wrap
 	}
 
+	function refreshCapsuleLabels(){
+		capsulesList.querySelectorAll('.capsule-input').forEach((item, index) => {
+			const label = item.querySelector('.capsule-label')
+			if (label) label.textContent = `Capsule ${index + 1}`
+		})
+	}
+
 	// populate with three starter inputs
-	capsulesList.appendChild(makeCapsule('You are loved ❤️'))
-	capsulesList.appendChild(makeCapsule('A hug in text form 🤗'))
-	capsulesList.appendChild(makeCapsule('Smile at a stranger today 🙂'))
+	capsulesList.appendChild(makeCapsule('You got a secret message!'))
+	capsulesList.appendChild(makeCapsule('Another capsule, another feeling.'))
+	capsulesList.appendChild(makeCapsule('Lucky pull ✨'))
 
 	// add handler to add new capsule
 	addBtn.addEventListener('click', (e) =>{
 		e.preventDefault()
 		capsulesList.appendChild(makeCapsule(''))
+		refreshCapsuleLabels()
 		// scroll last into view
 		capsulesList.lastChild.scrollIntoView({behavior:'smooth', block:'center'})
 	})
@@ -262,4 +276,3 @@ function initReceiver(){
 }
 
 /* End of script.js */
-
